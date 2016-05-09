@@ -1,0 +1,92 @@
+﻿@model Chat.Models.MainViewModel
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Chat Login</h3>
+				</div>
+				<div class="panel-body">
+					<div class="loginWindow">
+						<form id="form-logon" class="form-horizontal" method="post" action="@Url.Action("Chat", "Main")">
+							<input type="hidden" id="avatarClass" name="avatarClass" value="avatar-01" />
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Avatar</label>
+								<div class="col-sm-10">
+									<div class="btn-group">
+										<button type="button" id="btn-avatar" class="btn btn-default"><span class="avatar avatar-01"></span></button>
+										<button type="button" class="btn btn-default dropdown-toggle" style="height:51px;" data-toggle="dropdown">
+											<span class="caret"></span>
+											<span class="sr-only">Toggle Dropdown</span>
+										</button>
+										<ul id="avatarList" class="dropdown-menu scrollable-menu" role="menu">
+											<li><a href="#" data-class="avatar-03"><span class="avatar avatar-03"></span></a></li>
+											<li><a href="#" data-class="avatar-04"><span class="avatar avatar-04"></span></a></li>
+											<li><a href="#" data-class="avatar-05"><span class="avatar avatar-05"></span></a></li>
+											<li><a href="#" data-class="avatar-06"><span class="avatar avatar-06"></span></a></li>
+											<li><a href="#" data-class="avatar-07"><span class="avatar avatar-07"></span></a></li>
+											<li><a href="#" data-class="avatar-08"><span class="avatar avatar-08"></span></a></li>
+											<li><a href="#" data-class="avatar-09"><span class="avatar avatar-09"></span></a></li>
+											<li><a href="#" data-class="avatar-10"><span class="avatar avatar-10"></span></a></li>
+											<li><a href="#" data-class="avatar-11"><span class="avatar avatar-11"></span></a></li>
+											<li><a href="#" data-class="avatar-12"><span class="avatar avatar-12"></span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="userName" value="@ViewBag.UserName" id="txtbx-userName" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-log-in" style="margin-right: 6px;"></span> Login</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@Html.Partial("_templates")
+
+@section scripts
+{
+	<script>
+		$(function () {
+			$("#avatarList li > a").click(function (e) {
+				e.preventDefault();
+				var cls = $(this).attr("data-class");
+				var span = $('<span class="avatar"></span>').addClass(cls);
+				$("#btn-avatar").empty().append(span);
+				$("#avatarClass").val(cls);
+			});
+			$("#form-logon").submit(function (e) {
+				var userName = $("#txtbx-userName").val();
+				if (userName.length === 0) {
+					addError();
+					e.preventDefault();
+				}
+			});
+
+			$("#txtbx-userName").keyup(function () {
+				if ($("#txtbx-userName").val().length > 0) {
+					removeError();
+				}
+			});
+
+			var addError = (function () {
+				$("#txtbx-userName").closest(".form-group").addClass("has-error");
+			});
+
+			var removeError = (function () {
+				$("#txtbx-userName").closest(".form-group").removeClass("has-error");
+			});
+		});
+	</script>
+}

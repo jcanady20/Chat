@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta http-equiv="EXPIRES" content="0">
+	<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+    <meta name="viewport" content="width=device-width" />
+    <title>Chat</title>
+    <link href="@Url.Content("~/Public/imgs/favicon.ico")" rel="shortcut icon">
+    @Styles.Render("~/Public/css/bootstrap.min.css")
+	@Styles.Render("~/Public/css/site.css")
+    @Styles.Render("~/Public/css/siteheader.css")
+</head>
+<body>
+	<header>
+		@Html.Partial("_SiteHeader");
+	</header>
+	
+    @RenderBody()
+
+    @Scripts.Render("~/Public/js/lib/combined.js")
+	@Scripts.Render("~/Public/js/lib/jquery.signalR-2.0.3.min.js")
+	@Scripts.Render("~/Public/js/lib/jquery.slimscroll.min.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

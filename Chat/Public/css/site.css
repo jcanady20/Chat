@@ -1,0 +1,320 @@
+﻿/* Header */
+header {
+	padding: 10px 0px 10px 0px;
+	background: #fafafa url("../imgs/cream.png") repeat;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 8px;
+}
+header .container {
+	width:100%;
+	max-width: 100%;
+}
+header .logo {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+header .logo .meta {
+	color: #888;
+	line-height: 15px;
+	padding: 0px;
+	margin: 0px;
+}
+.well-white
+{
+	background-color: #fff;
+}
+.well-border
+{
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 2px;
+	padding: 1px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+.chatWindow {
+	height: 400px;
+	background: #fafafa;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.memberList {
+	height: 440px;
+	background: #fafafa;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+
+/* Chats */
+
+.chats{
+	list-style-type: none;
+	margin: 0px;
+	padding: 8px;
+}
+
+.chats li{
+	margin-bottom: 8px;
+	padding-bottom: 8px;
+}
+
+/*	By Me */
+.chats .by-me .avatar{
+	float: left;
+	margin-top: 5px;
+	margin-right:10px;
+	padding: 1px;
+}
+
+.chats .by-me .chat-meta{
+	font-size: 10px;
+	color: #999;
+}
+
+.chats .by-me .chat-content{
+	margin-left: 60px;
+	position: relative; 
+	background: #fff; 
+	border: 1px solid #ddd;
+	padding: 7px 10px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.chats .by-me .chat-content:after, .chats .by-me .chat-content:before { 
+	right: 100%; 
+	border: solid transparent; 
+	content: " "; 
+	height: 0; 
+	width: 0; 
+	position: absolute; 
+	pointer-events: none; 
+} 
+
+.chats .by-me .chat-content:after { 
+	border-color: rgba(255, 255, 255, 0); 
+	border-right-color: #fff; 
+	border-width: 10px; 
+	top: 30%; 
+	margin-top: -10px; 
+} 
+
+.chats .by-me .chat-content:before { 
+	border-color: rgba(238, 238, 238, 0); 
+	border-right-color: #ccc; 
+	border-width: 11px; 
+	top: 30%; 
+	margin-top: -11px; 
+}
+
+/*	By Other */
+.chats .by-other .avatar {
+	float: right;
+	margin-top: 5px;
+	margin-left:10px;
+	padding: 1px;
+}
+
+.chats .by-other .chat-meta{
+	font-size: 10px;
+	color: #999;
+}
+
+.chats .by-other .chat-content{
+	margin-right: 60px;
+	position: relative; 
+	background: #fff; 
+	border: 1px solid #ddd;
+	padding: 7px 10px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.chats .by-other .chat-content:after, .chats .by-other .chat-content:before { 
+	left: 100%; 
+	border: solid transparent; 
+	content: " "; 
+	height: 0; 
+	width: 0; 
+	position: absolute; 
+	pointer-events: none; 
+} 
+
+.chats .by-other .chat-content:after { 
+	border-color: rgba(255, 255, 255, 0); 
+	border-left-color: #fff; 
+	border-width: 10px; 
+	top: 30%; 
+	margin-top: -10px; 
+} 
+
+.chats .by-other .chat-content:before { 
+	border-color: rgba(238, 238, 238, 0); 
+	border-left-color: #ccc; 
+	border-width: 11px; 
+	top: 30%; 
+	margin-top: -11px; 
+}
+
+/* By Private */
+.chats .by-private .avatar {
+	float: right;
+	margin-top: 5px;
+	margin-left:10px;
+	padding: 1px;
+}
+
+.chats .by-private .chat-meta{
+	font-size: 10px;
+	color: #ddd;
+}
+
+.chats .by-private .chat-content{
+	margin-right: 60px;
+	position: relative; 
+	background: #557AA1; 
+	border: 1px solid #555D66;
+	padding: 7px 10px;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #ddd;
+}
+
+.chats .by-private .chat-content:after, .chats .by-private .chat-content:before { 
+	left: 100%; 
+	border: solid transparent; 
+	content: " "; 
+	height: 0; 
+	width: 0; 
+	position: absolute; 
+	pointer-events: none; 
+} 
+
+.chats .by-private .chat-content:after { 
+	border-color: rgba(255, 255, 255, 0); 
+	border-left-color: #555D66; 
+	border-width: 10px; 
+	top: 30%; 
+	margin-top: -10px; 
+} 
+
+.chats .by-private .chat-content:before { 
+	border-color: rgba(238, 238, 238, 0); 
+	border-left-color: #93A0B0; 
+	border-width: 11px; 
+	top: 30%; 
+	margin-top: -11px; 
+}
+
+/* Member List */
+.members {
+	list-style-type: none;
+	margin: 0px;
+	padding: 4px;
+}
+
+.members li {
+	margin-bottom: 2px;
+	padding-bottom: 2px;
+	padding: 7px 10px;
+	border: 1px solid #ddd;	
+	border-radius: 5px;
+	background: #fff;
+}
+
+.members .member-content {
+	margin-left: 10px;
+	position: relative;	
+	font-size: 14px;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.members .member-avatar {
+	float: left;
+	margin-left: -8px;
+	margin-top: -8px;
+	padding: 1px;
+	width: 32px;
+	height: 32px;
+}
+
+/* Avatars */
+
+.avatar {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+}
+
+.avatar-01 {
+	background-image: url('../imgs/avatars/avatar-01.png');
+}
+.avatar-02 {
+	background-image: url('../imgs/avatars/avatar-02.png');
+}
+.avatar-03 {
+	background-image: url('../imgs/avatars/avatar-03.png');
+}
+.avatar-04 {
+	background-image: url('../imgs/avatars/avatar-04.png');
+}
+.avatar-05 {
+	background-image: url('../imgs/avatars/avatar-05.png');
+}
+.avatar-06 {
+	background-image: url('../imgs/avatars/avatar-06.png');
+}
+.avatar-07 {
+	background-image: url('../imgs/avatars/avatar-07.png');
+}
+.avatar-08 {
+	background-image: url('../imgs/avatars/avatar-08.png');
+}
+.avatar-09 {
+	background-image: url('../imgs/avatars/avatar-09.png');
+}
+.avatar-10 {
+	background-image: url('../imgs/avatars/avatar-10.png');
+}
+.avatar-11 {
+	background-image: url('../imgs/avatars/avatar-11.png');
+}
+.avatar-12 {
+	background-image: url('../imgs/avatars/avatar-12.png');
+}
+.avatar-13 {
+	background-image: url('../imgs/avatars/avatar-13.png');
+}
+.avatar-14 {
+	background-image: url('../imgs/avatars/avatar-14.png');
+}
+.avatar-15 {
+	background-image: url('../imgs/avatars/avatar-15.png');
+}
+.avatar-16 {
+	background-image: url('../imgs/avatars/avatar-16.png');
+}
+.avatar-17 {
+	background-image: url('../imgs/avatars/avatar-17.png');
+}
+.avatar-18 {
+	background-image: url('../imgs/avatars/avatar-18.png');
+}
+.avatar-19 {
+	background-image: url('../imgs/avatars/avatar-19.png');
+}
+.avatar-20 {
+	background-image: url('../imgs/avatars/avatar-20.png');
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}

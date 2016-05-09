@@ -1,0 +1,39 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+				<td>Action:</td>
+				<td>@Model.ActionName</td>
+			</tr>
+			<tr>
+				<td>Controller:</td>
+				<td>@Model.ControllerName</td>
+			</tr>
+			@if(Model.Exception != null) {
+			<tr>
+				<td>Message:</td>
+				<td>
+					<div>@Model.Exception.Message</div>
+					@if (Model.Exception.InnerException != null) {
+						<div>@Model.Exception.InnerException.Message</div>
+					}
+					@if (Model.Exception.InnerException != null && Model.Exception.InnerException.InnerException != null) {
+						<div>@Model.Exception.InnerException.InnerException.Message</div>
+					}
+				</td>
+			</tr>
+        </tbody>
+    </table>
+</body>
+</html>

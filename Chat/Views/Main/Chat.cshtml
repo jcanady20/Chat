@@ -1,0 +1,86 @@
+﻿@model Chat.Models.MainViewModel
+<input type="hidden" name="apiUrl" id="apiUrl" value="@Url.Content("~/api")" />
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="pull-right" style="margin-top: -6px;">
+						<a href="@Url.Action("Index")" title="Log Out" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-log-out"></span></a>
+					</div>
+					<h3 class="panel-title">Chat</h3>
+				</div>
+				<div class="panel-body">
+                    <div class="well-border">
+						<div class="chatWindow sroll-chat"></div>
+					</div>
+                    <div class="chatInput" style="margin-left: 0; margin-right: 0;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+					<div class="pull-right" style="margin-top: -6px;">
+						<button type="button" id="btn-refreshMembers" title="Refresh Member" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
+					</div>
+					<h3 class="panel-title">Members</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="well-border">
+						<div class="memberList scroll-member"></div>
+					</div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+@Html.Partial("_templates")
+
+@section scripts
+{
+    <script src="~/signalr/hubs"></script>
+	@Scripts.Render("~/Public/js/main.js")
+	<script>
+		/*	Setup ScrollBar plugin	*/
+		$(function () {
+			$("#avatarList li > a").click(function (e) {
+				e.preventDefault();
+				var cls = $(this).attr("data-class");
+				var span = $('<span class="avatar"></span>').addClass(cls);
+				$("#btn-avatar").empty().append(span);
+			});
+			$('.scroll-chat').slimscroll({
+				height: '400px',
+				color: 'rgba(0,0,0,0.3)',
+				size: '5px'
+			});
+			$('.scroll-member').slimscroll({
+				height: '444px',
+				color: 'rgba(0,0,0,0.3)',
+				size: '5px'
+			});
+		});
+		
+		
+		
+		/*	Setup the Chat App	*/
+		$(function () {
+			var signalr = $.connection;
+
+			window.Main = new Main($, _, Backbone, signalr);
+			window.Main.setChatClient(@Html.Raw(Json.Encode(Model)));
+			window.Main.setApiUrl('@Url.Content("~/api")');
+
+			$("#btn-refreshMembers").click(function () {
+				window.Main.refreshMembers();
+			});
+
+			window.onbeforeunload = (function () {
+				window.Main.shutDown();
+			});
+
+		});
+	</script>
+}

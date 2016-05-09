@@ -1,0 +1,35 @@
+﻿<script id="" type="text/x-jquery-tmpl"></script>
+<script id="chatInput-tmpl" type="text/x-jquery-tmpl">
+	<div class="input-group input-group-lg">
+		<input type="text" id="chat-input-txt" class="form-control" />
+		<span class="input-group-btn">
+			<button type="button" class="btn btn-default">Send</button>
+		</span>
+	</div>
+</script>
+<script id="chat-msg-tmpl" type="text/x-jquery-tmpl">
+	<li>
+		<!-- Use the class "pull-left" in avatar -->
+		<div class="chat-avatar"><span class="avatar <%= FromAvatar %>"></span></div>
+		<div class="chat-content">
+			<!-- In meta area, first include "name" and then "time" -->
+			<div class="chat-meta"><%= FromUser %> <% if(ToUser !== null) { print(' >> ' + ToUser); } %> <span class="pull-right"><% var p = moment(Sent).format('DD/MM/YYYY hh:mm:ss'); print(p); %></span></div>
+			<div><%= Message %></div>
+			<div class="clearfix"></div>
+		</div>
+	</li>
+</script>
+<script id="member-tmpl" type="text/x-jquery-tmpl">
+	<li class="member">
+		<div class="member-avatar"><span class="avatar <%= AvatarClass %>"></span></div>
+		<span class="member-content"><%= UserName %></span>
+	</li>
+</script>
+
+<script id="status-msg-tmpl" type="text/x-jquery-tmpl">
+	<li>
+		<div class="status-msg">
+			<span><% var p = moment().format('DD/MM/YYYY hh:mm:ss'); print(p); %> <%= UserName %> has <%= Status %> the channel</span>
+		</div>
+	</li>
+</script>
